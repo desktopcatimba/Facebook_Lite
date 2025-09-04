@@ -6,24 +6,33 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#007AFF",
+        tabBarActiveTintColor: "#008069", // cor verde estilo WhatsApp
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Feed",
+          title: "Chats",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" color={color} size={size} />
+            <Ionicons name="chatbubbles" color={color} size={size} />
           ),
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="status"
         options={{
-          title: "Perfil",
+          title: "Estado",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" color={color} size={size} />
+            <Ionicons name="aperture" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="call"
+        options={{
+          title: "Chamadas",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="call" color={color} size={size} />
           ),
         }}
       />
