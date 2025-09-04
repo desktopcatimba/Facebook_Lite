@@ -1,4 +1,4 @@
-import mysql from "mysql2";
+const mysql = require('mysql2');
 
 const conn = mysql.createConnection({
   host: "localhost",
@@ -9,10 +9,10 @@ const conn = mysql.createConnection({
 
 conn.connect((err) => {
   if (err) {
-    console.error("Erro ao conectar MySQL:", err);
+    console.error("Erro ao conectar MySQL:", err.message);
     return;
   }
   console.log("MySQL conectado!");
 });
 
-export default conn;
+module.exports = conn;
