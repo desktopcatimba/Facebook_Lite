@@ -1,22 +1,25 @@
 import { View, Text, StyleSheet, FlatList, Image, Share, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import Estado from "@/components/screens/Estado";
-
+import Header from "@/components/shared/Header";
 
 export default function StatusScreen() {
   return (
     <View style={styles.container}>
+      <Header />
       <Estado />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 16 },
+  container: { flex: 1, backgroundColor: "#fff",width:"100%",
+    height:"100%",},
   item: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 16,
+    
   },
   avatar: { width: 50, height: 50, borderRadius: 25, marginRight: 12 },
   nome: { fontSize: 16, fontWeight: "bold" },

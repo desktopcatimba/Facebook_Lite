@@ -3,14 +3,14 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 const statusData = [
   { id: "1", nome: "Edvaldo", hora: "Hoje, 14:00", foto: "https://i.pravatar.cc/150?img=11" },
-  { id: "2", nome: "Magda", hora: "Hoje, 13:30", foto: "https://i.pravatar.cc/150?img=12" },
-  { id: "3", nome: "Benvinda", hora: "Ontem, 21:00", foto: "https://i.pravatar.cc/150?img=13" },
+  { id: "2", nome: "Magda", hora: "Hoje, 13:30", foto: "https://i.pravatar.cc/150?img=16" },
+  { id: "3", nome: "Benvinda", hora: "Ontem, 21:00", foto: "https://i.pravatar.cc/150?img=10" },
 ];
 
 async function onShare() {
   try {
     const result = await Share.share({
-      message: "Eu te amo *MINHA GUIGA*!",
+      message: "https://i.pravatar.cc/150?img=12",
       url:'facebook.com'
     });
 
@@ -47,7 +47,7 @@ export default function Estado() {
       />
 
       <TouchableOpacity style={styles.fab} onPress={onShare}>
-        <MaterialIcons name="home" size={28} color="#fff" />
+        <MaterialIcons name="share" size={28} color="#fff" />
       </TouchableOpacity>
     </View>
   );

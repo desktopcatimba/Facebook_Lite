@@ -4,11 +4,6 @@ import { useRouter } from "expo-router";
 
 export default function Header() {
 
-    const router = useRouter()
-    function logout()
-    {
-        router.replace('/(auth)/login')
-    }
   return (
     <SafeAreaView style={{ backgroundColor: "#008069" }}>
       <View style={styles.header}>
@@ -16,9 +11,6 @@ export default function Header() {
         
         <TouchableOpacity onPress={() => console.log("Clicou nos 3 pontos")}>
           <MaterialIcons name="more-vert" size={28} color="#fff" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={logout}>
-          <MaterialIcons name="logout" size={28} color="#fff" />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

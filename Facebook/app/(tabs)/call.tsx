@@ -1,48 +1,43 @@
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, Text, StyleSheet, FlatList, Image, Share, TouchableOpacity } from "react-native";
+import Header from "@/components/shared/Header";
+import CallsScreen from "@/components/screens/Calls";
 
-const callsData = [
-  { id: "1", nome: "Edvaldo", tipo: "recebida", hora: "Hoje, 14:00", foto: "https://i.pravatar.cc/150?img=14" },
-  { id: "2", nome: "Magda", tipo: "perdida", hora: "Hoje, 12:45", foto: "https://i.pravatar.cc/150?img=15" },
-  { id: "3", nome: "Benvinda", tipo: "feita", hora: "Ontem, 22:10", foto: "https://i.pravatar.cc/150?img=16" },
-];
-
-export default function CallsScreen() {
+export default function StatusScreen() {
   return (
     <View style={styles.container}>
-      <FlatList
-        data={callsData}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.item}>
-            <Image source={{ uri: item.foto }} style={styles.avatar} />
-            <View style={styles.info}>
-              <Text style={styles.nome}>{item.nome}</Text>
-              <Text style={styles.hora}>{item.hora}</Text>
-            </View>
-            <Ionicons
-              name="call"
-              size={22}
-              color={item.tipo === "perdida" ? "red" : "#25D366"}
-              style={styles.icon}
-            />
-          </View>
-        )}
-      />
+      <Header />
+      <CallsScreen />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 16 },
+  container: { flex: 1, backgroundColor: "#fff",width:"100%",
+    height:"100%",},
   item: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 16,
+    
   },
   avatar: { width: 50, height: 50, borderRadius: 25, marginRight: 12 },
-  info: { flex: 1 },
   nome: { fontSize: 16, fontWeight: "bold" },
   hora: { color: "#555", fontSize: 13 },
-  icon: { marginLeft: 8 },
+
+  fab: {
+    position: "absolute",
+    bottom: 30,
+    right: 20,
+    backgroundColor: "#008069",
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 5,
+  },
 });
