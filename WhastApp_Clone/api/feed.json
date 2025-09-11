@@ -1,0 +1,70 @@
+[
+  {
+    "id":"1",
+    "nome": "Benvinda Neto",
+    "mensagens": [
+      { "id": 1, "sms": "Boa tarde amor.", "type": "rec" },
+      { "id": 2, "sms": "Estás boa?", "type": "sent" },
+      { "id": 3, "sms": "Sim, e tu?", "type": "rec" },
+      { "id": 4, "sms": "Também estou bem, saudades tuas.", "type": "sent" },
+      { "id": 5, "sms": "Também tenho, quando nos vemos?", "type": "rec" }
+    ],
+    "ultima_mensagem":"Também tenho, quando nos vemos?",
+    "hora":"07:57",
+    "foto":"https://i.pravatar.cc/150?img=10"
+  },
+  {
+    "id":"2",
+    "nome": "Anderson Ribeiro",
+    "mensagens": [
+      { "id": 1, "sms": "Mano, como está o projeto?", "type": "rec" },
+      { "id": 2, "sms": "Já quase pronto, só falta ajustar o método.", "type": "sent" },
+      { "id": 3, "sms": "Boa! Depois me explicas também.", "type": "rec" },
+      { "id": 4, "sms": "Claro, marcamos um dia.", "type": "sent" }
+    ],
+    "ultima_mensagem":"Claro, marcamos um dia.",
+    "hora":"10:49",
+    "foto":"https://i.pravatar.cc/150?img=7"
+  },
+  {
+    "id":"3",
+    "nome": "Juelson Soxi",
+    "mensagens": [
+      { "id": 1, "sms": "Olá Joana, chegaste bem?", "type": "sent" },
+      { "id": 2, "sms": "Sim, correu tudo bem. Obrigada!", "type": "rec" },
+      { "id": 3, "sms": "Ainda vais à festa logo mais?", "type": "sent" },
+      { "id": 4, "sms": "Vou sim, e tu?", "type": "rec" },
+      { "id": 5, "sms": "Também vou, combinamos de ir juntos?", "type": "sent" }
+    ],
+    "ultima_mensagem":"Também vou, combinamos de ir juntos?",
+    "hora":"15:21",
+    "foto":"https://i.pravatar.cc/150?img=54"
+  },
+  {
+    "id":"4",
+    "nome": "Arnaldo de Melo",
+    "mensagens": [
+      { "id": 1, "sms": "Bom dia chefe.", "type": "rec" },
+      { "id": 2, "sms": "Bom dia Ade-melo, já trataste do relatório?", "type": "sent" },
+      { "id": 3, "sms": "Ainda não, mas vou terminar até amanhã.", "type": "rec" },
+      { "id": 4, "sms": "Ok, preciso dele para a reunião.", "type": "sent" }
+    ],
+    "ultima_mensagem":"Ok, preciso dele para a reunião.",
+    "hora":"23:30",
+    "foto":"https://i.pravatar.cc/150?img=17"
+  },
+  {
+    "id":"5",
+    "nome": "Maria Ntangu",
+    "mensagens": [
+      { "id": 1, "sms": "Oi amigo!", "type": "rec" },
+      { "id": 2, "sms": "Oi, quanto tempo!", "type": "sent" },
+      { "id": 3, "sms": "Pois é, precisamos marcar um encontro.", "type": "rec" },
+      { "id": 4, "sms": "Verdade, que tal no fim de semana?", "type": "sent" },
+      { "id": 5, "sms": "Boa ideia, vou estar livre.", "type": "rec" }
+    ],
+    "ultima_mensagem":"Boa ideia, vou estar livre.",
+    "hora":"02:30",
+    "foto":"https://randomuser.me/api/portraits/women/3.jpg"
+  }
+]
