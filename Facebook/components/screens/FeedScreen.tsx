@@ -1,35 +1,54 @@
-import { useState } from "react";
-import { View, FlatList, StyleSheet, TouchableOpacity } from "react-native";
+import { useState, useEffect } from "react";
+import { View, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import ChatItem from "@/components/ChatItem";
+import api from "@/api/api";
+import feedUsers from "@/api/feed.json";
 
 const Feed = () => {
   const router = useRouter();
 
-  const [posts, setPosts] = useState([
-    { id: "1", nome: "Edson", mensagem: "Meu primeiro post no app 🚀", hora: "14:20", foto: "https://i.pravatar.cc/150?img=11" },
-    { id: "2", nome: "Magda", mensagem: "Olá pessoal 👋", hora: "14:45", foto: "https://i.pravatar.cc/150?img=12" },
-    { id: "3", nome: "Benvinda", mensagem: "Oi amor 💕", hora: "15:00", foto: "https://i.pravatar.cc/150?img=13" },
-    { id: "4", nome: "Juelson", mensagem: "Wey é como?", hora: "15:00", foto: "https://i.pravatar.cc/150?img=14" },
-  ]);
+//  const [chats, setChats] = useState([]);
+//  const [feeds, setFeeds] = useState(feedUsers);
+//  const [loading, setLoading] = useState(false);
+/*
+  useEffect(() => {
+    api
+      .get("/chats/1")
+      .then((response) => {
+        setChats(response.data);
+        console.log("Chats =>", response.data);
+      })
+      .catch((error) => console.error("Erro ao carregar chats:", error))
+      .finally(() => setLoading(false));
+  }, []);*/
+
+  /*if (loading) {
+    return (
+      <View style={styles.loader}>
+        <ActivityIndicator size="large" color="#008069" />
+      </View>
+    );
+  }*/
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={posts}
-        keyExtractor={(item) => item.id}
+        data={feedUsers}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <ChatItem
-            foto={item.foto}
             nome={item.nome}
-            mensagem={item.mensagem}
+            mensagem={item.ultima_mensagem}
             hora={item.hora}
-            onPress={() => router.push(`/(Chats)/${item.id}`)} 
+            foto={item.foto} 
+            onPress={() => router.push(`/(Chats)/${item.id}`)}
           />
         )}
         contentContainerStyle={{ paddingBottom: 20 }}
       />
+
       <TouchableOpacity style={styles.fab}>
         <MaterialIcons name="share" size={28} color="#fff" />
       </TouchableOpacity>
@@ -41,6 +60,11 @@ export default Feed;
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#fff" },
+  loader: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   fab: {
     position: "absolute",
     bottom: 30,

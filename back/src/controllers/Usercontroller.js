@@ -49,6 +49,26 @@ const UserController = {
         })
     })
 
+  },
+
+  update:(req,res)=>{
+    const {nome,telefone, senha, foto_perfil} = req.body
+    const id = req.params.id
+    conn.query('select * from users where id = ?', [id],(err,data)=>{
+        if(err)
+            return res.status(500).json({mensagem: 'Erro ao atualizar'})
+        if (data.length === 0) 
+            return res.status(404).json({ mensagem: "Usuário não encontrado!" });
+
+        conn.query('update users set nome = ?, telefone = ?, senha = ?, foto_perfil = ? where id = ?',[nome,telefone,senha,foto_perfil,id],(err)=>{
+            if(err)
+                return res.status(500).json({mensagem: 'Erro ao atualizar', erro:err.message})  
+
+            return res.status(200).json({mensagem: 'User atualizado!'})
+            })
+
+    })
+
   }
 ,
 

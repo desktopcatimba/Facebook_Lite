@@ -43,10 +43,10 @@ CREATE TABLE `calls` (
 --
 
 CREATE TABLE `chats` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) DEFAULT NULL,
-  `is_group` tinyint(1) DEFAULT 0,
-  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `nome` VARCHAR(100) DEFAULT NULL,
+  `is_group` TINYINT(1) DEFAULT 0,
+  `criado_em` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -56,12 +56,15 @@ CREATE TABLE `chats` (
 --
 
 CREATE TABLE `chat_participants` (
-  `id` int(11) NOT NULL,
-  `chat_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `adicionado_em` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` INT(11) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `adicionado_em` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`chat_id`) REFERENCES `chats`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  UNIQUE KEY (`chat_id`, `user_id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -69,12 +72,16 @@ CREATE TABLE `chat_participants` (
 --
 
 CREATE TABLE `messages` (
-  `id` int(11) NOT NULL,
-  `chat_id` int(11) NOT NULL,
-  `sender_id` int(11) NOT NULL,
-  `conteudo` text DEFAULT NULL,
-  `tipo` enum('texto','imagem','video','audio') DEFAULT 'texto',
-  `enviado_em` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `chat_id` INT NOT NULL,
+  `sender_id` INT NOT NULL,
+  `conteudo` TEXT DEFAULT NULL,
+  `tipo` ENUM('texto','imagem','video','audio') DEFAULT 'texto',
+  `status` ENUM('sent','delivered','read') DEFAULT 'sent',
+  `enviado_em` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_message_chat FOREIGN KEY (`chat_id`) REFERENCES `chats`(`id`) ON DELETE CASCADE,
+  CONSTRAINT fk_message_sender FOREIGN KEY (`sender_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
